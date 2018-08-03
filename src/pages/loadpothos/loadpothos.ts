@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ViewController } from 'ionic-angular';
+
 
 @Component({
   selector: 'page-loadpothos',
@@ -6,8 +8,10 @@ import { Component } from '@angular/core';
 })
 export class LoadpothosPage {
 
-  constructor() {
+  constructor(private viewCtrl: ViewController) {
   }
 
- 
+  cerrar_modal(){
+    this.viewCtrl.dismiss();
+  }
 }

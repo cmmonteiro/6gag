@@ -9,13 +9,29 @@
 <ion-content>
  Hola Mundo!!
 
-  <ion-card>
 
-    <img scr="">
+ <ion-card>
+  <img src="https://regeneracion.mx/wp-content/uploads/2018/06/siete_colores.jpg"/>
+  <ion-card-content>
+    <ion-card-title>
+      Monte 7 colores
+      </ion-card-title>
+  </ion-card-content>
+<ion-row>
+    <ion-col text-right>
+      <button ion-button clear small color="primary"
+              icon-left (click)="compartir()">
+      
+              <ion-icon name="share-alt"></ion-icon>
+              Compartir
+      </button>
 
-  </ion-card>
+    </ion-col>
+</ion-row>
 
- <ion-fab bottom right>
-   <button ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
+</ion-card>
+
+<ion-fab bottom right>
+   <button ion-fab color="danger" (click)="mostrar_modal()"><ion-icon name="add"></ion-icon></button>
  </ion-fab>
 </ion-content>
