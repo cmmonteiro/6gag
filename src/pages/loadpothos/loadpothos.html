@@ -3,7 +3,7 @@
 
   <ion-navbar>
     <ion-buttons>
-      <button ion-button (click)="cerrar_modal()">
+      <button ion-button  color="primary" (click)="cerrar_modal()">
         Cerrar
       </button>
     </ion-buttons>
@@ -14,5 +14,41 @@
 
 
 <ion-content>
+
+  <ion-list>
+
+      <ion-item>
+          <ion-label color="primary" floating>Titulo</ion-label>
+          <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <img src="http://www.jujuyaldia.com.ar/wp-content/uploads/2016/01/cerro-7-colores.jpg"/>
+      </ion-item>
+
+  </ion-list>
+
+  <ion-grid>
+
+    <ion-row>
+      <ion-col>
+
+        <button ion-button 
+                block 
+                icon-left>
+              <ion-icon name="photos"> Seleccionar</ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+          <button ion-button 
+          block 
+          icon-left>
+        <ion-icon name="camera">Camara</ion-icon>
+  </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
 
 </ion-content>
