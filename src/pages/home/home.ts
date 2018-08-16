@@ -2,6 +2,9 @@
 import { Component } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 
+//firebase
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 //modal page 
 import { LoadpothosPage } from './../loadpothos/loadpothos';
@@ -12,10 +15,11 @@ import { LoadpothosPage } from './../loadpothos/loadpothos';
 })
 export class HomePage {
 
-  constructor(public modalCtrl: ModalController) {
+  photos: Observable<any[]>;
 
+  constructor(public modalCtrl: ModalController, afDB: AngularFireDatabase) {
+    this.photos = afDB.list('post').valueChanges();
   }
-
 
   compartir(){
     console.log("compartiendo foto");

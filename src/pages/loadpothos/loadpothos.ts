@@ -8,6 +8,9 @@ import { ViewController } from 'ionic-angular';
 })
 export class LoadpothosPage {
 
+
+  titulo:string;
+  
   constructor(private viewCtrl: ViewController) {
   }
 

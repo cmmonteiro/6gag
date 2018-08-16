@@ -10,11 +10,11 @@
  Hola Mundo!!
 
 
- <ion-card>
-  <img src="http://www.jujuyaldia.com.ar/wp-content/uploads/2016/01/cerro-7-colores.jpg"/>
+ <ion-card  *ngFor="let photo of photos | async">
+  <img src={{photo.img}}/>
   <ion-card-content>
     <ion-card-title>
-      Monte 7 colores
+      {{photo.titulo}}
       </ion-card-title>
   </ion-card-content>
 <ion-row>

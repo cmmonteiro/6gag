@@ -7,7 +7,7 @@
         Cerrar
       </button>
     </ion-buttons>
-    <ion-title>Carga de Imagenes</ion-title>
+    <ion-title>{{titulo  | placeHolder}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,7 +19,7 @@
 
       <ion-item>
           <ion-label color="primary" floating>Titulo</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input type="text" [(ngModel)]= "titulo"></ion-input>
       </ion-item>
 
       <ion-item>
