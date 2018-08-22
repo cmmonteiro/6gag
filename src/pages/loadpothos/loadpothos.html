@@ -8,6 +8,13 @@
       </button>
     </ion-buttons>
     <ion-title>{{titulo  | placeHolder}}</ion-title>
+
+    <ion-buttons end>
+      <button ion-button  color="primary" (click)="crear_post()">
+        Crear post
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
 
 </ion-header>
@@ -22,8 +29,8 @@
           <ion-input type="text" [(ngModel)]= "titulo"></ion-input>
       </ion-item>
 
-      <ion-item>
-          <img src="http://www.jujuyaldia.com.ar/wp-content/uploads/2016/01/cerro-7-colores.jpg"/>
+      <ion-item *ngIf="imagenPreview">
+          <img [src]="imagenPreview"/>
       </ion-item>
 
   </ion-list>
@@ -35,14 +42,14 @@
 
         <button ion-button 
                 block 
-                icon-left>
+                icon-left (click)="select_picture()">
               <ion-icon name="photos"> Seleccionar</ion-icon>
         </button>
       </ion-col>
       <ion-col>
           <button ion-button 
           block 
-          icon-left>
+          icon-left (click)="show_camera()">
         <ion-icon name="camera">Camara</ion-icon>
   </button>
       </ion-col>

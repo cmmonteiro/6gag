@@ -17,6 +17,12 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+//plugins
+import { Camera } from '@ionic-native/camera';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { LoadFileProvider } from '../providers/load-file/load-file';
+
+
  // Initialize Firebase
 export const firebaseConfig = {
   apiKey: "AIzaSyA-oVpFf7CYJApsbwahiwsl2Kq6dt9Td8U",
@@ -53,7 +59,10 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     AngularFireDatabase,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Camera,
+    ImagePicker,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    LoadFileProvider
   ]
 })
 export class AppModule {}
