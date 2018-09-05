@@ -10,7 +10,7 @@
  Hola Mundo!!
 
 
- <ion-card  *ngFor="let photo of photos | async">
+ <ion-card  *ngFor="let photo of photos ">
   <img src={{photo.img}}/>
   <ion-card-content>
     <ion-card-title>
@@ -20,7 +20,7 @@
 <ion-row>
     <ion-col text-right>
       <button ion-button clear small color="primary"
-              icon-left (click)="compartir()">
+              icon-left (click)="compartir(photo)">
       
               <ion-icon name="share-alt"></ion-icon>
               Compartir
@@ -34,4 +34,10 @@
 <ion-fab bottom right>
    <button ion-fab color="danger" (click)="mostrar_modal()"><ion-icon name="add"></ion-icon></button>
  </ion-fab>
+
+
+ <ion-infinite-scroll (ionInfinite)="doInfinite($event)" [enabled]="areMorePictures" >
+  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
 </ion-content>

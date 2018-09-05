@@ -13,23 +13,23 @@ import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 export class LoadpothosPage {
   
 
-  titulo:string;
-  imagenPreview :string;
-  imagen64 : string;
+  titulo:string = "";
+  imagenPreview :string = "";
+  imagen64 : string ;
   
   constructor(private viewCtrl: ViewController, private camera: Camera, private imagePicker: ImagePicker, public _cap:LoadFileProvider) {
   }
 
-
-  
+ 
   cerrar_modal(){
+    console.log("cerrando post");
     this.viewCtrl.dismiss();
   }
 
   show_camera(){
     const options: CameraOptions = {
       quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI,
+      destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
     }
@@ -39,7 +39,8 @@ export class LoadpothosPage {
             // imageData is either a base64 encoded string or a file URI
             // If it's base64 (DATA_URL):
             this.imagenPreview ='data:image/jpeg;base64,' + imageData;
-            //this.imagen64 = imageData;
+            this.imagen64 = imageData;
+            console.log("Se guarda ImageData",imageData);
         }
         ,(err) => {
             console.log("Error en camara",JSON.stringify(err));
@@ -68,12 +69,15 @@ export class LoadpothosPage {
 
 
   crear_post(){
+
     let archivo = {
       img : this.imagen64,
       titulo:this.titulo
-
     }
-    this._cap.load_images_firebase(archivo);
+    this._cap.load_images_firebase(archivo).then(
+      ()=>this.cerrar_modal()
+    );
+    
 
   }
 }

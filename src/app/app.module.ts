@@ -14,13 +14,16 @@ import { PipesModule } from './../pipes/pipes.module';
 
 //firebase
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 //plugins
 import { Camera } from '@ionic-native/camera';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { LoadFileProvider } from '../providers/load-file/load-file';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 
  // Initialize Firebase
@@ -62,7 +65,12 @@ export const firebaseConfig = {
     Camera,
     ImagePicker,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LoadFileProvider
+    LoadFileProvider,
+    AngularFireModule,
+    AngularFireDatabaseModule,
+    AngularFireAuth,
+    SocialSharing
   ]
+    
 })
 export class AppModule {}
